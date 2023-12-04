@@ -1,0 +1,17 @@
+{% extends "main/base.html" %}
+{% block title %}ToDo List{% endblock %}
+{% block content %}
+<br><br>
+<div class="container">
+    {% for task in all_tasks %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ task.title }}</h3>
+            <p class="card-text">{{ task.description }}</p>
+            <a href="{% url 'edit_task' task.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'delete_task' task.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
